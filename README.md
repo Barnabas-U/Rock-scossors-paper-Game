@@ -29,7 +29,7 @@ Users should be able to:
 ### Links
 
 - Solution URL: [Github](https://github.com/Barnabas-U/Rock-scossors-paper-Game)
-- Live Site URL: [Live site](https://your-live-site-url.com)
+- Live Site URL: [Live site](https://storied-liger-ac1af4.netlify.app/)
 
 ## My process 
 This is a one page project. so first I built,styled the rules page, & built the cancel button of the rules. I used /.style.display = "none"/ to make the rules dissapear when the x(cancel) button is clicked.
