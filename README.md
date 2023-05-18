@@ -32,8 +32,11 @@ Users should be able to:
 - Live Site URL: [Live site](https://your-live-site-url.com)
 
 ## My process 
-This is a one page project. so first I built,styled & built the cancel button of the rules. I used /.style.display = "none"/ to make the rules dispear when the x(cancel) button is clicked.
-Then I built & styled the selection page. I built a function that makes the selected hand appear on the next page as my picked hand. and another function to randomly select a hand for the house and display said selected hand on the next page as "the house picked" hand, right as I select mine. and a third function that determines who wins the round and displays it, while also adding or subtracting a new score and display on the score board. I also built a function that takes the game back to the selection page with just a click of a button. finaly, I built a button that displays the rules once again.
+This is a one page project. so first I built,styled the rules page, & built the cancel button of the rules. I used /.style.display = "none"/ to make the rules dissapear when the x(cancel) button is clicked.
+
+Then I built & styled the selection page. I built a function that makes the selected hand appear on the next page as my picked hand. and another function to randomly select a hand for the house and display said selected hand on the next page as "the house picked" hand, right as I select mine. and a third function that determines who wins the round and displays it, while also adding or subtracting a new score and display it on the score board.
+
+I also built a function that takes the game back to the selection page with just a click of a button. finaly, I built a button that displays the rules once again.
 
 ### Built with
 
@@ -49,8 +52,6 @@ Then I built & styled the selection page. I built a function that makes the sele
 Since I learnt data structures, I havn't had a reason to use /Math.random()/ until now. with this project, I was able to brush up on my data structures a little bit.
 
 I also learnt to use /setTimeout()/ to delay a fucntion for however long is needed.
-
-To see how you can add code snippets, see below:
 
 ### Continued development
 
