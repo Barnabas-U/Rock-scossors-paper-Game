@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  
+  <title>Frontend Mentor | Rock, Paper, Scissors</title>
+  <link rel="stylesheet" href="/styles/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="styles/image/favicon-32x32.png" type="image/x-icon">
+  <style>
+    
+    .attribution { font-size: 11px; text-align: center; position: fixed; bottom: 1em; color: antiquewhite; }
+    .attribution a { color: hsl(228, 45%, 64%); text-align: center; }
+  </style>
+</head>
+<body>
+
+  <div class="r-div">
+    <div class="rules">
+      <h2 class="rules-text">RULES</h2>
+      <img src="styles/image/icon-close.svg" alt="" srcset="" id="x-btn" onclick="disappear()">
+      <img src="styles/image/image-rules.svg" alt="" srcset="" class="rules-img">
+    </div>
+  </div>
+
+  <div class="main">
+
+    <div class="score-bar">
+      <div class="name">
+        <p>ROCK</p>
+        <P>PAPER</P>
+        <P>SCISSORS</P>
+      </div>
+      <div class="score-box">
+        <p>SCORE</p>
+        <span class="score" id="score"><h1>0</h1></span>
+      </div>
+    </div>
+  
+    <div class="play">
+      
+      <div class="picker" >
+        <div class="pick">
+          <img src="styles/image/icon-rock.svg" onclick="pickUserHand('rock')" id="rock">
+          <img src="styles/image/icon-scissors.svg" onclick="pickUserHand('scissors')" id="scissors">
+          <img src="styles/image/icon-paper.svg" onclick="pickUserHand('paper')" id="paper">
+        </div>
+      </div>
+      
+  
+      <div class="game">
+        <div class="you">
+          <p class="yp-1">YOU PICKED</p>
+          <div class="img-div"><img src="styles/image/icon-paper.svg" id="userPickImage"></div>
+          <p class="yp-2">YOU PICKED</p>
+        </div>
+
+        <div class="result">
+          <h1>YOU LOSE</H1>
+          <button type="button" onclick="restart()">PLAY AGAIN</button>
+        </div>
+
+        <div class="house">
+          <p class="hp-1">THE HOUSE PICKED</p>
+          <div><img src="" id="housePickImage"></div>
+          <p class="hp-2">THE HOUSE PICKED</p>
+        </div>
+
+
+      </div>
+  
+    </div>
+  
+    <h2 id="rules-btn" onclick="appear()">RULES</h2>
+
+  </div>
+
+
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://euphonious-torrone-dbf56e.netlify.app/">Barnabas Ukagha</a>.
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

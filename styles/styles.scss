@@ -1,0 +1,675 @@
+* {
+    box-sizing: border-box;
+    box-shadow: 0;
+    margin: 0;
+    font-family: 'Barlow Semi Condensed', sans-serif;
+}
+
+$Scissors-Gradient: hsl(39, 89%, 49%);
+$Paper-Gradient: hsl(230, 89%, 62%);
+$Rock-Gradient: hsl(349, 71%, 52%);
+$Lizard-Gradient: hsl(261, 73%, 60%);
+$Cyan: hsl(189, 59%, 53%);
+
+$Dark-Text: hsl(229, 25%, 31%);
+$Score-Text: hsl(229, 64%, 46%);
+$Header-Outline: hsl(217, 16%, 45%);
+
+
+$Radial-Gradient: hsl(214, 47%, 23%);
+
+body {
+    background-color: $Radial-Gradient;
+}
+
+/* xs */
+@media (min-width: 275px) {
+    .rules {
+        background-color: white;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+
+        .rules-text {
+            position: fixed;
+            top: 4em;
+            color: $Dark-Text;
+        }
+
+        .rules-img {
+            height: 35%;
+        }
+
+        #x-btn {
+            position: fixed;
+            bottom: 5em;
+        }
+    } 
+
+    .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 100vh;
+      padding: 10%;
+
+        .score-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            height: 15%;
+            padding: 1em;
+            border: 0.2em solid $Header-Outline;
+            border-radius: 0.3em;
+            margin-bottom: 2em;
+
+            .name {
+                color: white;
+                font-size: larger;
+                font-weight: 600;
+                line-height: 0.8em;
+            }
+
+            .score-box {
+                background-color: white;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0.5em;
+                width: 4em;
+                height: 115%;
+
+                p {
+                    font-size: x-small;
+                    font-weight: 800;
+                    letter-spacing: 0.1em;
+                    color: $Lizard-Gradient;
+                }
+
+                .score {
+                    font-size: large;
+                    font-weight: 800;
+                    color: $Dark-Text;
+                }
+            }
+        }
+
+        .play {
+            width: 100%;
+            height: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .picker {
+                height: 80%;
+                width: 90%;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                .pick {
+                    background-image: url(image/bg-triangle.svg);
+                    background-size: 100% 100%;
+                    height: 80%;
+                    width: 80%;
+                    
+    
+                    #rock {
+                        position: absolute;
+                        bottom: 0;
+                        right: 30%;
+                        width: 40%;
+                        background-color: whitesmoke;
+                        padding: 1.3em;
+                        border: 0.8em solid $Rock-Gradient;
+                        border-radius: 50%;
+                      }
+
+                    #scissors {
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                        width: 40%;
+                        background-color: whitesmoke;
+                        padding: 1.3em;
+                        border: 0.8em solid $Scissors-Gradient;
+                        border-radius: 50%;
+                    }
+
+                    #paper {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 40%;
+                        background-color: whitesmoke;
+                        padding: 1.3em;
+                        border: 0.8em solid $Paper-Gradient;
+                        border-radius: 50%;
+                    }
+                }
+            }
+
+            .game {
+              display: none;
+              width: 100%;
+              position: relative;
+              height: 90%;
+
+              .you {
+                position: absolute;
+                top: 0;
+                left: 0.5em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                height: 50%;
+                
+               
+                .yp-1 {
+                  display: none;
+                }
+
+                div {
+                  
+                  img {
+                    width: 100%;
+                    background-color: whitesmoke;
+                    padding: 1.3em;
+                    border: 0.8em solid $Rock-Gradient;
+                    border-radius: 50%;
+
+                  }
+                }
+
+                .yp-2 {
+                  color: white;
+                  font-size: small;
+                  font-weight: 600;
+                  letter-spacing: 0.1em;
+                }
+              }
+
+              .house {
+                position: absolute;
+                top: 0;
+                right: 0.5em;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+                height: 50%;
+                
+                
+                .hp-1 {
+                  display: none;
+                }
+                div {
+                  
+                  img {
+                    width: 100%;
+                    background-color: whitesmoke;
+                    padding: 1.3em;
+                    border: 0.8em solid ;
+                    border-radius: 50%;
+
+                  }
+                }
+
+                .hp-2 {
+                  bottom: 0;
+                  color: white;
+                  font-size: small;
+                  font-weight: 600;
+                  letter-spacing: 0.1em;
+                }
+              }
+
+              .result {
+                position: absolute;
+                bottom: 1em;
+                width: 100%;
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+
+                h1 {
+                  font-size: 3.3em;
+                  color: white;
+                  
+                }
+
+                button {
+                  margin-top: 1em;
+                  margin-left: 0em;
+                  width: 13em;
+                  height: 3em;
+                  font-size: medium;
+                  font-weight: 600;
+                  letter-spacing: 0.1em;
+                  color: $Dark-Text;
+                  border: none;
+                  border-radius: 0.4em;
+                }
+              }
+
+            }
+        }
+
+      #rules-btn {
+        font-size: medium;
+        color: white;
+        border: 0.01em solid white;
+        padding: 0.5em;
+        width: 35%;
+        border-radius: 0.4em;
+        text-align: center;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        margin-bottom: 2em;
+      }  
+    }
+}
+
+/* sm */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .rules {
+    .rules-text {
+      font-size: 3.5em;
+    }
+
+    #x-btn {
+      bottom: 7em;
+      width: 3em;
+    }
+  }
+
+  .main {
+    
+    .score-bar {
+      width: 60%;
+      padding: 0.5em;
+
+      .name {
+        font-size: x-large;
+        line-height: 1em;
+      }
+
+      .score-box {
+        height: 90%;
+        width: 6em;
+
+        p {
+          font-size: medium;
+        }
+
+        .score {
+          font-size: xx-large;
+          font-weight: 800;
+        }
+      }
+    }
+
+    .play {
+
+      .picker {
+        
+        .pick {
+          
+          #rock {
+            width: 30%;
+            right: 35%;
+          }
+
+          #scissors {
+            width: 30%;
+          }
+
+          #paper {
+            width: 30%;
+          }
+        }
+      }
+
+      .game {
+        width: 60%;
+
+        .you {
+          height: 40%;
+
+          div {
+            img {
+              width: 110%;
+            }
+          }
+
+          .yp-2 {
+            font-size: larger;
+          }
+        }
+
+        .house {
+          height: 40%;
+
+          .hp-2 {
+            font-size: larger;
+          }
+        }
+
+        .result {
+          bottom: 2em;
+
+          h1 {
+            font-size: 4.3em;
+          }
+
+          button {
+            margin-top: 0;
+            width: 9em;
+            font-size: xx-large;
+          }
+        }
+      }
+    }
+
+    #rules-btn {
+      font-size: large;
+    }
+  }
+}
+
+/* lg */
+@media (min-width: 1024px) {
+  .r-div {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .rules {
+      width: 40%;
+      height: 60%;
+      position: relative;
+      border-radius: 10px;
+
+      .rules-text {
+        font-size: xx-large;
+        position: absolute;
+        left: 1em;
+        top: 1em;
+      }
+
+      .rules-img {
+        width: 70%;
+        height: 80%;
+        padding-top: 3em;
+      }
+
+      #x-btn {
+        width: 1.5em;
+        position: absolute;
+        right: 2em;
+        top: 2em;
+        cursor: pointer;
+        transition: 0.5s ease;
+
+        &:hover {
+          width: 1.8em;
+          right: 1.8em;
+          top: 1.9em;
+          background-color: lightgray;
+        }
+      }
+    }
+  }
+
+  .main {
+    padding: 2em;
+
+    .score-bar {
+      height: 20%;
+      border-radius: 1em;
+      padding: 1.5em;
+      margin-bottom: 1em;
+
+      .name {
+        font-size: x-large;
+        font-weight: 700;
+        line-height: 0.9em;
+      }
+
+      .score-box {
+        height: 190%;
+        justify-content: space-between;
+        
+        p {
+          font-size: small;
+        }
+
+        .score {
+          font-size: large;
+          margin-bottom: 1em;
+          line-height: 1em;
+        }
+      }
+    }
+
+    .play {
+      width: 50%;
+      height: 80%;
+
+      .picker {
+        width: 70%;
+
+        .pick {
+          #scissors {
+            cursor: pointer;
+            top: -1em;
+            transition: 0.3s ease;
+
+            &:hover {
+              top: -1.3em;
+              right: 0.3em;
+              box-shadow: 0.4em 0.4em gray;
+            }
+          }
+
+          #paper {
+            cursor: pointer;
+            top: -1em;
+            transition: 0.3s ease;
+
+            &:hover {
+              top: -1.3em;
+              left: -0.3em;
+              box-shadow: 0.4em 0.4em gray;
+            }
+          }
+
+          #rock {
+            cursor: pointer;
+            transition: 0.3s ease;
+
+            &:hover {
+              bottom: 0.3em;
+              right: 37%;
+              box-shadow: 0.3em 0.3em gray;
+            }
+          }
+        }
+      }
+
+      .game {
+        width: 150%;
+        height: 100%;
+        align-items: center;
+        justify-content: space-between;
+        
+
+        .you {
+          position: unset;
+          width: 100%;
+          height: 70%;
+
+          .yp-1 {
+            display: block;
+            color: white;
+            font-size: larger;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+          }
+
+          div {
+            width: 70%;
+            border-radius: 50%;           
+          }
+
+          .yp-2 {
+            display: none;
+          }
+          
+        }
+
+        .house {
+          position: unset;
+          width: 100%;
+          height: 70%;
+
+          .hp-1 {
+            display: block;
+            color: white;
+            font-size: larger;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+          }
+
+          
+          div {
+            width: 70%;
+            border-radius: 50%;
+            
+          }
+
+          .hp-2 {
+            display: none;
+          }
+          
+
+        }
+
+        .result {
+          position: relative;
+          width: 35em;
+          position: unset;
+          margin-top: 0;
+          height: 23%;
+          justify-content: space-between;
+
+          h1 {
+            font-size: 2.5em;
+          }
+
+          button {
+            cursor: pointer;
+            margin-left: 0.5em;
+            width: 12em;
+            font-size: small;
+            font-weight: 700;
+            color: $Rock-Gradient;
+            transition: 0.3s ease;
+
+            &:hover {
+              color: $Radial-Gradient;
+              background-color: $Rock-Gradient;
+            }
+          }
+
+        }
+      }
+    }
+
+    #rules-btn {
+      position: absolute;
+      right: 2em;
+      bottom: 2em;
+      width: 10%;
+      cursor: pointer;
+      transition: 0.3s ease;
+
+      &:hover {
+        bottom: 2.2em;
+        right: 2.2em;
+        box-shadow: 0.2em 0.2em white;
+      }
+
+    }
+  }
+}
+
+/* xl */
+@media (min-width: 1280px) {
+  .main {
+    .score-bar {
+      .name {
+        font-size: xx-large;
+        line-height: 1em;
+      }
+
+      .score-box {
+        height: 100%;
+
+        p {
+          font-size: x-large;
+        }
+
+        .score {
+          font-size: x-large;
+        }
+      }
+    }
+
+    .play {
+      
+      .picker {
+        height: 60%;
+      }
+
+      .game {
+        height: 65%;
+      }
+    }
+  }
+}
+
+/* 2xl */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}

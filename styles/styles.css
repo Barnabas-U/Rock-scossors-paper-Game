@@ -1,0 +1,525 @@
+* {
+  box-sizing: border-box;
+  box-shadow: 0;
+  margin: 0;
+  font-family: "Barlow Semi Condensed", sans-serif;
+}
+
+body {
+  background-color: hsl(214, 47%, 23%);
+}
+
+/* xs */
+@media (min-width: 275px) {
+  .rules {
+    background-color: white;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .rules .rules-text {
+    position: fixed;
+    top: 4em;
+    color: hsl(229, 25%, 31%);
+  }
+  .rules .rules-img {
+    height: 35%;
+  }
+  .rules #x-btn {
+    position: fixed;
+    bottom: 5em;
+  }
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100vh;
+    padding: 10%;
+  }
+  .main .score-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 15%;
+    padding: 1em;
+    border: 0.2em solid hsl(217, 16%, 45%);
+    border-radius: 0.3em;
+    margin-bottom: 2em;
+  }
+  .main .score-bar .name {
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+    line-height: 0.8em;
+  }
+  .main .score-bar .score-box {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5em;
+    width: 4em;
+    height: 115%;
+  }
+  .main .score-bar .score-box p {
+    font-size: x-small;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: hsl(261, 73%, 60%);
+  }
+  .main .score-bar .score-box .score {
+    font-size: large;
+    font-weight: 800;
+    color: hsl(229, 25%, 31%);
+  }
+  .main .play {
+    width: 100%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main .play .picker {
+    height: 80%;
+    width: 90%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .main .play .picker .pick {
+    background-image: url(image/bg-triangle.svg);
+    background-size: 100% 100%;
+    height: 80%;
+    width: 80%;
+  }
+  .main .play .picker .pick #rock {
+    position: absolute;
+    bottom: 0;
+    right: 30%;
+    width: 40%;
+    background-color: whitesmoke;
+    padding: 1.3em;
+    border: 0.8em solid hsl(349, 71%, 52%);
+    border-radius: 50%;
+  }
+  .main .play .picker .pick #scissors {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    background-color: whitesmoke;
+    padding: 1.3em;
+    border: 0.8em solid hsl(39, 89%, 49%);
+    border-radius: 50%;
+  }
+  .main .play .picker .pick #paper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    background-color: whitesmoke;
+    padding: 1.3em;
+    border: 0.8em solid hsl(230, 89%, 62%);
+    border-radius: 50%;
+  }
+  .main .play .game {
+    display: none;
+    width: 100%;
+    position: relative;
+    height: 90%;
+  }
+  .main .play .game .you {
+    position: absolute;
+    top: 0;
+    left: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+  }
+  .main .play .game .you .yp-1 {
+    display: none;
+  }
+  .main .play .game .you div img {
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 1.3em;
+    border: 0.8em solid hsl(349, 71%, 52%);
+    border-radius: 50%;
+  }
+  .main .play .game .you .yp-2 {
+    color: white;
+    font-size: small;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+  .main .play .game .house {
+    position: absolute;
+    top: 0;
+    right: 0.5em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 50%;
+  }
+  .main .play .game .house .hp-1 {
+    display: none;
+  }
+  .main .play .game .house div img {
+    width: 100%;
+    background-color: whitesmoke;
+    padding: 1.3em;
+    border: 0.8em solid;
+    border-radius: 50%;
+  }
+  .main .play .game .house .hp-2 {
+    bottom: 0;
+    color: white;
+    font-size: small;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+  .main .play .game .result {
+    position: absolute;
+    bottom: 1em;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .main .play .game .result h1 {
+    font-size: 3.3em;
+    color: white;
+  }
+  .main .play .game .result button {
+    margin-top: 1em;
+    margin-left: 0em;
+    width: 13em;
+    height: 3em;
+    font-size: medium;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: hsl(229, 25%, 31%);
+    border: none;
+    border-radius: 0.4em;
+  }
+  .main #rules-btn {
+    font-size: medium;
+    color: white;
+    border: 0.01em solid white;
+    padding: 0.5em;
+    width: 35%;
+    border-radius: 0.4em;
+    text-align: center;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    margin-bottom: 2em;
+  }
+}
+/* sm */
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+/* md */
+@media (min-width: 768px) {
+  .rules .rules-text {
+    font-size: 3.5em;
+  }
+  .rules #x-btn {
+    bottom: 7em;
+    width: 3em;
+  }
+  .main .score-bar {
+    width: 60%;
+    padding: 0.5em;
+  }
+  .main .score-bar .name {
+    font-size: x-large;
+    line-height: 1em;
+  }
+  .main .score-bar .score-box {
+    height: 90%;
+    width: 6em;
+  }
+  .main .score-bar .score-box p {
+    font-size: medium;
+  }
+  .main .score-bar .score-box .score {
+    font-size: xx-large;
+    font-weight: 800;
+  }
+  .main .play .picker .pick #rock {
+    width: 30%;
+    right: 35%;
+  }
+  .main .play .picker .pick #scissors {
+    width: 30%;
+  }
+  .main .play .picker .pick #paper {
+    width: 30%;
+  }
+  .main .play .game {
+    width: 60%;
+  }
+  .main .play .game .you {
+    height: 40%;
+  }
+  .main .play .game .you div img {
+    width: 110%;
+  }
+  .main .play .game .you .yp-2 {
+    font-size: larger;
+  }
+  .main .play .game .house {
+    height: 40%;
+  }
+  .main .play .game .house .hp-2 {
+    font-size: larger;
+  }
+  .main .play .game .result {
+    bottom: 2em;
+  }
+  .main .play .game .result h1 {
+    font-size: 4.3em;
+  }
+  .main .play .game .result button {
+    margin-top: 0;
+    width: 9em;
+    font-size: xx-large;
+  }
+  .main #rules-btn {
+    font-size: large;
+  }
+}
+/* lg */
+@media (min-width: 1024px) {
+  .r-div {
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .r-div .rules {
+    width: 40%;
+    height: 60%;
+    position: relative;
+    border-radius: 10px;
+  }
+  .r-div .rules .rules-text {
+    font-size: xx-large;
+    position: absolute;
+    left: 1em;
+    top: 1em;
+  }
+  .r-div .rules .rules-img {
+    width: 70%;
+    height: 80%;
+    padding-top: 3em;
+  }
+  .r-div .rules #x-btn {
+    width: 1.5em;
+    position: absolute;
+    right: 2em;
+    top: 2em;
+    cursor: pointer;
+    transition: 0.5s ease;
+  }
+  .r-div .rules #x-btn:hover {
+    width: 1.8em;
+    right: 1.8em;
+    top: 1.9em;
+    background-color: lightgray;
+  }
+  .main {
+    padding: 2em;
+  }
+  .main .score-bar {
+    height: 20%;
+    border-radius: 1em;
+    padding: 1.5em;
+    margin-bottom: 1em;
+  }
+  .main .score-bar .name {
+    font-size: x-large;
+    font-weight: 700;
+    line-height: 0.9em;
+  }
+  .main .score-bar .score-box {
+    height: 190%;
+    justify-content: space-between;
+  }
+  .main .score-bar .score-box p {
+    font-size: small;
+  }
+  .main .score-bar .score-box .score {
+    font-size: large;
+    margin-bottom: 1em;
+    line-height: 1em;
+  }
+  .main .play {
+    width: 50%;
+    height: 80%;
+  }
+  .main .play .picker {
+    width: 70%;
+  }
+  .main .play .picker .pick #scissors {
+    cursor: pointer;
+    top: -1em;
+    transition: 0.3s ease;
+  }
+  .main .play .picker .pick #scissors:hover {
+    top: -1.3em;
+    right: 0.3em;
+    box-shadow: 0.4em 0.4em gray;
+  }
+  .main .play .picker .pick #paper {
+    cursor: pointer;
+    top: -1em;
+    transition: 0.3s ease;
+  }
+  .main .play .picker .pick #paper:hover {
+    top: -1.3em;
+    left: -0.3em;
+    box-shadow: 0.4em 0.4em gray;
+  }
+  .main .play .picker .pick #rock {
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  .main .play .picker .pick #rock:hover {
+    bottom: 0.3em;
+    right: 37%;
+    box-shadow: 0.3em 0.3em gray;
+  }
+  .main .play .game {
+    width: 150%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .main .play .game .you {
+    position: unset;
+    width: 100%;
+    height: 70%;
+  }
+  .main .play .game .you .yp-1 {
+    display: block;
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+  .main .play .game .you div {
+    width: 70%;
+    border-radius: 50%;
+  }
+  .main .play .game .you .yp-2 {
+    display: none;
+  }
+  .main .play .game .house {
+    position: unset;
+    width: 100%;
+    height: 70%;
+  }
+  .main .play .game .house .hp-1 {
+    display: block;
+    color: white;
+    font-size: larger;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+  }
+  .main .play .game .house div {
+    width: 70%;
+    border-radius: 50%;
+  }
+  .main .play .game .house .hp-2 {
+    display: none;
+  }
+  .main .play .game .result {
+    position: relative;
+    width: 35em;
+    position: unset;
+    margin-top: 0;
+    height: 23%;
+    justify-content: space-between;
+  }
+  .main .play .game .result h1 {
+    font-size: 2.5em;
+  }
+  .main .play .game .result button {
+    cursor: pointer;
+    margin-left: 0.5em;
+    width: 12em;
+    font-size: small;
+    font-weight: 700;
+    color: hsl(349, 71%, 52%);
+    transition: 0.3s ease;
+  }
+  .main .play .game .result button:hover {
+    color: hsl(214, 47%, 23%);
+    background-color: hsl(349, 71%, 52%);
+  }
+  .main #rules-btn {
+    position: absolute;
+    right: 2em;
+    bottom: 2em;
+    width: 10%;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  .main #rules-btn:hover {
+    bottom: 2.2em;
+    right: 2.2em;
+    box-shadow: 0.2em 0.2em white;
+  }
+}
+/* xl */
+@media (min-width: 1280px) {
+  .main .score-bar .name {
+    font-size: xx-large;
+    line-height: 1em;
+  }
+  .main .score-bar .score-box {
+    height: 100%;
+  }
+  .main .score-bar .score-box p {
+    font-size: x-large;
+  }
+  .main .score-bar .score-box .score {
+    font-size: x-large;
+  }
+  .main .play .picker {
+    height: 60%;
+  }
+  .main .play .game {
+    height: 65%;
+  }
+}
+/* 2xl */
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}/*# sourceMappingURL=styles.css.map */
